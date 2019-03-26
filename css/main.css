@@ -6,41 +6,128 @@ body * {
     box-sizing: border-box;
 }
 
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .hero-background {
     background-image: url(../img/main.jpg);
+    height: 100vh;
 }
 .hero-content {
     display: inline-block;
     width: 500px;
     margin: 40px calc((100% - 500px) / 2) 20px;
+    text-align: center;
+}
+#hero .hero-content > * {
+    width: 100%;
 }
 #hero .logo {
-
+    background-image: url(../img/logo.png);
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: inline-block;
 }
 #hero h1 {
-
+    text-transform: uppercase;
+    margin: 40px 0 20px;
+    font-size: 40px;
+    line-height: 40px;
+    display: inline-block;
 }
 #hero p {
-
+    margin: 0 0 20px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #777;
+    display: inline-block;
 }
 #hero .clock {
-
+    margin: 40px 0 60px 0; 
+    display: inline-block;
 }
     #hero .clock > .clock-block {
-
+        display: inline-block;
+        float: left;
+        width: 25%;
     }   
         #hero .clock > .clock-block > .value {
-
+            font-size: 36px;
+            color: white;
         }  
         #hero .clock > .clock-block > .title {
-
+            font-size: 20px;
+            color: white;
         }    
 #hero .form {
 
 }
     #hero .form > input {
+        width: 90%;
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: 1px solid white;
+        background: transparent;
+        padding: 10px 0;
+        font-size: 20px;
+        line-height: 20px;
+        color: white;
+         }
+        #hero .form > input:focus {
+             outline: none;
+        }  
+        #hero .form > input::placeholder {
+             color: white;
+        }
+        #hero .form > .btn {
+             background-color: #EA1E63;
+             color: #fff;
+             padding: 10px 30px;
+             display: inline-block;
+             box-shadow: -1px 3px 4px rgba(0,0,0,0.2); /* 1 nurodo i kaire ar desine, antras virsus apacia, trecias bluras, jei norime daugiau seseliu tai is esmes padedam kableli ir vel skaiciu rasom: -1px 3px 4px rgba(0,0,0,0.2), -1px 3px 4px rgba(0,0,0,0.2) */
+             border: 1px solid #EA1E99;
+             border-radius: 1px;
+        }
+        #hero .form > .btn:hover {
+            background-color: rgb(161, 73, 103);
+            cursor: pointer;
+        }
 
+    #content {
+        display: inline-block;
+        width: 100%;
     }
-    #hero .form > .btn {
-
+        #content .container {
+            display: inline-block;
+            width: 1000px;
+            margin: 20px calc((100% - 1000px) / 2) 20px;
+        }
+        #content .container > .left {
+            display: inline-block;
+            float: left;
+            width: 50%;
+        }
+        #content .container > .right {
+            display: inline-block;
+            float: left;
+            width: 50%;
+            padding-left: 10%;
+        }
+footer {
+    background-color: lightblue;
+    text-align: center;
+}
+    footer > .social {
+        display: inline-block;
+        width: 1000px;
+        margin: 20px calc((100% - 1000px) / 2);
+        border-bottom: 1px solid white;
+        padding-bottom: 20px;
+    }
+    footer > .legal-shit {
+        display: inline-block;
+        width: 1000px;
+        margin: 0 calc((100% - 1000px) / 2) 20px;
     }
