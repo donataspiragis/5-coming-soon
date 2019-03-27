@@ -10,7 +10,7 @@ body {
 }
 .hero-background {
     background-image: url(../img/main.jpg);
-    height: 100vh;
+    min-height: 100vh;
 }
     .hero-content {
         display: inline-block;
@@ -44,25 +44,31 @@ body {
             color: #777;
             display: inline-block;
         }
-        #hero .clock {
-            margin: 40px 0 60px 0; 
+        #clockdiv{
+            font-family: sans-serif;
+            color: #fff;
             display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 45px;
+            font-weight: bold;
         }
-            #hero .clock > .clock-block {
+            #clockdiv > div{
+                padding: 5px;
                 display: inline-block;
-                float: left;
-                width: 25%;
-            }   
-            #hero .clock > .clock-block > .value {
-                font-size: 39px;
-                color: white;
-            }  
-            #hero .clock > .clock-block > .title {
-                font-size: 22px;
-                color: white;
-            }    
+            }
+            #clockdiv div > span{
+                padding: 10px;
+                display: inline-block;
+                font-size: 55px;
+            }
+        .smalltext{
+            padding: 7px 15px 7px 15px;
+            font-size: 19px;
+            text-transform: uppercase;
+        }
         #hero .form {
-
+            margin-top: 45px;
         }
             #hero .form > input {
                 width: 90%;
@@ -121,6 +127,22 @@ body {
                 10% { transform: translateY(0); opacity: 1; }
                 100% { transform: translateY(15px); opacity: 0;}
               }
+              @media ( max-width: 640px ) {
+                .hero-content {
+                    width: 100%;
+                    margin: 40px 0 20px;
+                    padding: 0 20px;
+                }
+            }
+            @media ( max-width: 480px ) {
+                #hero .clock {
+                    margin-top: 0;
+                }
+                #hero .clock > .clock-block {
+                    width: 50%;
+                    margin-top: 40px;
+                }
+            }
 .btn {
     background-color: #EA1E63;
     color: #fff;
@@ -137,7 +159,7 @@ body {
 #content {
     display: inline-block;
     width: 100%;
-    height: 70vh;
+    min-height: 70vh;
 }
     #content .container {
         display: inline-block;
@@ -231,7 +253,10 @@ body {
         }
         #form-message input:focus {
             outline: none;
-        }  
+        }
+        #content .container > .right > #form-message > .btn {
+            float: right;
+        }
         #content .container h3{
             font-size: 25px;
             line-height: 25px;
@@ -248,6 +273,27 @@ body {
         .raudona {
             color: red;
         }
+        @media ( max-width: 900px ) {
+            #content .container {
+                width: 540px;
+                margin: 40px calc( (100% - 540px) / 2 ) 20px;
+            }
+        }
+        @media ( max-width: 640px ) {
+            #content .container {
+                width: 100%;
+                margin: 40px 0 20px;
+            }
+                #content .container > .left {
+                    width: 100%;
+                    padding: 0 40px;
+                }
+                #content .container > .right {
+                    width: 100%;
+                    padding-left: 0%;
+                    padding: 40px;
+                }
+        }
 footer {
     background-color: #03A9F4;
     text-align: center;
@@ -259,6 +305,7 @@ footer {
         margin: 20px calc((100% - 1000px) / 2);
         border-bottom: 1px solid white;
         padding-bottom: 20px;
+        position: relative;
     }
         .fa {
             padding: 20px;
@@ -283,26 +330,46 @@ footer {
                 transform: rotate(360deg);
             }
         }
-#myBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: red;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-}
-#myBtn:hover {
-    background-color: #555;
-    }
     footer > .legal-shit {
         display: inline-block;
         width: 1000px;
         margin: 0 calc((100% - 1000px) / 2) 20px;
+    }
+    footer > .social > .back-to-top {
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        line-height: 35px;
+        color: #FFF;
+        text-decoration: none;
+        background-color: #EA1D62;
+        border-radius: 50%;
+        position: absolute;
+        top: -40px;
+        right: -20px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    @media ( max-width: 900px ) {
+        footer > .social {
+            width: 540px;
+            margin: 20px calc( (100% - 540px) / 2 );
+        }
+        footer > .legal-shit {
+            width: 540px;
+            margin: 0 calc( (100% - 540px) / 2 ) 40px;
+        }
+    }
+    @media ( max-width: 640px ) {
+        footer > .social {
+            width: 100%;
+            margin: 20px 0;
+        }
+        footer > .legal-shit {
+            width: 100%;
+            margin: 0 0 40px;
+        }
+        footer > .social > .back-to-top {
+            display: none;
+        }
     }

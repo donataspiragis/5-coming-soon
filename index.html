@@ -26,24 +26,24 @@
             <div class="logo"></div>
             <h1>Coming soon</h1>
             <p>An awesome new company for web resouces is comming very soon. Enter your email to request an early invitation!</p>
-           <div class="clock">
-               <div class="clock-block">
-                   <div class="value">432</div>
-                   <div class="title">days</div>
-               </div>
-               <div class="clock-block">
-                   <div class="value">09</div>
-                   <div class="title">hours</div>
-               </div>
-               <div class="clock-block">
-                   <div class="value">37</div>
-                   <div class="title">minutes</div>
-               </div>
-               <div class="clock-block">
-                   <div class="value">39</div>
-                   <div class="title">seconds</div>
-               </div>
-           </div>
+            <div id="clockdiv">
+                    <div>
+                      <span class="days"></span>
+                      <div class="smalltext">Days</div>
+                    </div>
+                    <div>
+                      <span class="hours"></span>
+                      <div class="smalltext">Hours</div>
+                    </div>
+                    <div>
+                      <span class="minutes"></span>
+                      <div class="smalltext">Minutes</div>
+                    </div>
+                    <div>
+                      <span class="seconds"></span>
+                      <div class="smalltext">Seconds</div>
+                    </div>
+                  </div>
             <form class="form">
                 <input type="email" placeholder="Type your Email" value="" required onchange="this.className=(this.value=='')?'':'visited';">
                 <div class="btn">Subscribe now</div>
@@ -55,7 +55,6 @@
               </div>
         </div>
     </div>
-
     <div id="content">
         <div class="container">
             <div class="left">
@@ -105,9 +104,6 @@
     </div>
     <footer>
         <div class="social">
-            <a href="#top" onclick="topFunction()" id="myBtn" title="Go to top">
-                <i class="material-icons">&#xE316;</i>
-            </a>
             <a href="https://www.facebook.com/MATROX/"><i class="fa fa-facebook"></i></a>
             <a href="https://twitter.com/matroxcomm?lang=en"><i class="fa fa-twitter"></i></a>
             <a href="https://dribbble.com/tags/matrox"><i class="fa fa-dribbble"></i></a>
@@ -115,6 +111,7 @@
             <a href="https://www.linkedin.com/company/matrox"><i class="fa fa-linkedin"></i></a>
             <a href="https://www.instagram.com/explore/locations/568790997/matrox?hl=en"><i class="fa fa-instagram"></i></a>
             <a href="https://www.matrox.com/graphics/en/press/news/"><i class="fa fa-rss"></i></a>
+            <a href="#" class="back-to-top fa fa-angle-up"></a>
         </div>
         <div class="legal-shit">
             <img src="img/logofooter.png" alt="">
@@ -122,5 +119,48 @@
                 Matrox pack includes complete websites not just homepages, it comes with full website demos. Over 200+ ready html files only for 17$. Purchase <a href="https://themeforest.net/item/matrox-material-design-multipurpose-html-template/16917670?ref=TrendyTheme">Matrox</a> Now!</p>
         </div>
     </footer>
+    <script>
+    function getTimeRemaining(endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date());
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return {
+          'total': t,
+          'days': days,
+          'hours': hours,
+          'minutes': minutes,
+          'seconds': seconds
+        };
+    }
+      
+      function initializeClock(id, endtime) {
+        var clock = document.getElementById(id);
+        var daysSpan = clock.querySelector('.days');
+        var hoursSpan = clock.querySelector('.hours');
+        var minutesSpan = clock.querySelector('.minutes');
+        var secondsSpan = clock.querySelector('.seconds');
+      
+        function updateClock() {
+          var t = getTimeRemaining(endtime);
+      
+          daysSpan.innerHTML = t.days;
+          hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+          minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+          secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+      
+          if (t.total <= 0) {
+            clearInterval(timeinterval);
+          }
+        }
+      
+        updateClock();
+        var timeinterval = setInterval(updateClock, 1000);
+      }
+      
+      var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+      initializeClock('clockdiv', deadline);
+    </script>
 </body>
 </html>
